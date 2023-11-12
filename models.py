@@ -1,3 +1,6 @@
+'''This file uses Postgress, kept for comparison
+'''
+
 import os
 from sqlalchemy import Column, String, Integer, create_engine
 from flask_sqlalchemy import SQLAlchemy
@@ -67,6 +70,7 @@ def insert_sample_locations():
 
 class SpatialConstants:
     SRID = 4326
+
 class Location(db.Model):
     __tablename__ = 'sample_locations'
 
@@ -125,12 +129,9 @@ class Location(db.Model):
     def update(self):
         db.session.commit()
 
-
-
 class Post(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   title = db.Column(db.String(100), nullable=False)
   date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow())
   content = db.Column(db.Text, nullable=False)
-  # content = db.Column(db.Geometry, nullable=False)
-  # user_id=db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+  

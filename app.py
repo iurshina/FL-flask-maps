@@ -4,19 +4,26 @@ from flask import Flask, request, abort, jsonify, render_template, url_for, flas
 from flask_cors import CORS
 import traceback
 from forms import NewLocationForm, AddPosts
-from models import setup_db, Location, db_drop_and_create_all, Post, db
+from models_mongo import db_drop_and_create_all, Location, Post
+from flask_mongoengine import MongoEngine
+
 
 def create_app(test_config=None):
     # create and configure the app
     app = Flask(__name__)
-    setup_db(app)
+    app.config['MONGODB_SETTINGS'] = {
+        'db': 'mydatabase',
+        'host': 'mongodb://127.0.0.1:27017',
+    }
+    db = MongoEngine(app)
+
     CORS(app)
 
     SECRET_KEY = os.urandom(32)
     app.config['SECRET_KEY'] = SECRET_KEY
 
     """ uncomment at the first time running the app. Then comment back so you do not erase db content over and over """
-    db_drop_and_create_all()
+    db_drop_and_create_all(app, db)
 
     @app.route('/', methods=['GET'])
     def home():
@@ -54,7 +61,7 @@ def create_app(test_config=None):
                 description=description,
                 geom=Location.point_representation(latitude=latitude, longitude=longitude)
             )
-            location.insert()
+            location.save()
 
             flash(f'New location created!', 'success')
             return redirect(url_for('home'))
@@ -137,9 +144,10 @@ def create_app(test_config=None):
             "message": "server error"
         }), 500
 
-    return app
+    return app, db
 
-app = create_app()
+
+app, db = create_app()
 if __name__ == '__main__':
     port = int(os.environ.get("PORT",5000))
     app.run(host='127.0.0.1',port=port,debug=True)

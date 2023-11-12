@@ -1,4 +1,4 @@
-# Flask / PostGres app template
+# Flask / MongoDB app template
 
 ## What is this template for?
 
@@ -20,7 +20,6 @@ The idea is you use this to get a first working version of these basic functiona
 - Git installed in your machine so you can execute git commands
 - Python installed in your machine so you can execute Python commands and run Pyton scripts. Make sure you have version **3.6 or superior**. You also need to use pip, can't remember if that needed to be installed separately.
 - A Google Maps API Key
-- A local installation of [Postgres](https://www.postgresql.org/download/)
 
 ```bash
 brew install postgresql@14
@@ -51,53 +50,47 @@ virtualenv --python C:\Users\<username>\AppData\Local\Programs\Python\Python39\p
 pip install -r requirements.txt
 ```
 
-## Install PostGres
+## Install MongoDB
 
-**Mac**
+In this fork, we replace Postgress with MongoDB. 
 
-install
-
-```bash
-brew install postgresql@14
-```
-
-start
-`brew services start postgresql@14`
-stop
-`brew services stop postgresql@14`
-
-to create a database
-
-`createdb <database_name>`
-
-after this, you can connect to the database using PostgreSQL interactive terminal (psql). 
-
-`psql -d <database_name>`
-
-in the terminal, you can run SQL commands:
-
-```sql
-CREATE DATABASE <database_name>;
-```
-
-## Install postgis
-PostGIS is an open-source extension for the PostgreSQL relational database management system that adds support for geographic and spatial data. It enables PostgreSQL to store, query, and manipulate geospatial data, such as points, lines, polygons, and more. PostGIS provides a wide range of functions and features for geospatial analysis, including proximity searches, distance calculations, spatial joins, and map overlays. This extension is widely used in various applications, such as geographic information systems (GIS), mapping, and location-based services, where the storage and analysis of geographic data are essential. PostGIS is a valuable tool for managing and extracting insights from spatial information within a relational database environment.
+To install MongoDB:
 
 ```bash
-brew install postgis
+brew tap mongodb/brew
+
+brew install mongodb-community
 ```
 
-to create a postgis extension
+To start:
 
-```sql
-CREATE EXTENSION postgis;
+```bash
+brew services start mongodb-community
 ```
+
+To stop:
+
+```bash
+brew services stop mongodb-community
+```
+
+Verify:
+
+```bash
+mongosh
+```
+
+This command opens the MongoDB shell. You should see a prompt similar to >. This indicates that MongoDB is running successfully.
+
+To create a database in the MongoDB shell:
+
+```bash
+use mydatabase
+```
+
+For more information beyond using this app, refere to MONGO_DB_INTRO.MD file.
 
 ## Running the app locally
-
-- DATABASE_URL: this is the connection string for the PostGres database.
-  set postgress URI in terminal, do this every time you run the app
-  `export DATABASE_URL=postgresql://<username>:<password>@localhost:5432/<database_name>`
 
 - GOOGLE_MAPS_API_KEY: You need to get this for yourself (via the Google app console). It will be sent to the Google Maps API to render the map on the initial page of the sample app.
   set google maps api in terminal do this every time you run the app
@@ -113,21 +106,18 @@ If you want to verify the values of the env variables, use:
 **Mac / Linux**
 
 ```
-echo $DATABASE_URL
 echo $GOOGLE_MAPS_API_KEY
 ```
 
 **Windows / Option 1**
 
 ```
-echo %DATABASE_URL%
 echo %GOOGLE_MAPS_API_KEY%
 ```
 
 **Windows / Option 2**
 
 ```
-$env:DATABASE_URL
 $env:GOOGLE_MAPS_API_KEY
 ```
 
