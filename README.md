@@ -70,7 +70,7 @@ to create a database
 
 `createdb <database_name>`
 
-after this, you can connected to the database using PostgreSQL interactive terminal (psql). 
+after this, you can connect to the database using PostgreSQL interactive terminal (psql). 
 
 `psql -d <database_name>`
 
