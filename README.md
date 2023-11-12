@@ -51,7 +51,7 @@ virtualenv --python C:\Users\<username>\AppData\Local\Programs\Python\Python39\p
 pip install -r requirements.txt
 ```
 
-## install PostGres
+## Install PostGres
 
 **Mac**
 
@@ -68,11 +68,19 @@ stop
 
 to create a database
 
+`createdb <database_name>`
+
+after this, you can connected to the database using PostgreSQL interactive terminal (psql). 
+
+`psql -d <database_name>`
+
+in the terminal, you can run SQL commands:
+
 ```sql
 CREATE DATABASE <database_name>;
 ```
 
-install postgis
+## Install postgis
 PostGIS is an open-source extension for the PostgreSQL relational database management system that adds support for geographic and spatial data. It enables PostgreSQL to store, query, and manipulate geospatial data, such as points, lines, polygons, and more. PostGIS provides a wide range of functions and features for geospatial analysis, including proximity searches, distance calculations, spatial joins, and map overlays. This extension is widely used in various applications, such as geographic information systems (GIS), mapping, and location-based services, where the storage and analysis of geographic data are essential. PostGIS is a valuable tool for managing and extracting insights from spatial information within a relational database environment.
 
 ```bash
