@@ -48,7 +48,7 @@ virtualenv --python C:\Users\<username>\AppData\Local\Programs\Python\Python39\p
 ## Installing Dependencies
 
 ```
-pip install -f requirements.txt
+pip install -r requirements.txt
 ```
 
 ## install PostGres
