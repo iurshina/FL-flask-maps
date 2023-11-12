@@ -13,8 +13,6 @@
 - **Scaling:** Typically scales vertically by adding more resources to a single server.
 - **Use Case:** Ideal for applications with complex relationships and where a structured and consistent schema is important, such as in traditional business applications.
 
-Absolutely! Here's the description of the data models for MongoDB and PostgreSQL in Markdown format:
-
 ### MongoDB Data Model:
 
 In MongoDB, the data model is based on flexible, JSON-like documents stored in BSON (Binary JSON) format. Documents are organized into collections, and each document can have a different structure within the same collection. MongoDB does not enforce a schema, allowing for dynamic and evolving data.
