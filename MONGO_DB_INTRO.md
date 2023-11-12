@@ -83,8 +83,6 @@ VALUES ('john_doe', 'john.doe@example.com', 30, 1, ARRAY['programming', 'hiking'
 
 Both models have their strengths, and the choice between them depends on the specific requirements of your application and the nature of your data.
 
-Certainly! Here are some basic MongoDB shell commands that you can use in the `mongosh` shell to interact with a MongoDB database:
-
 ### Basic Operations:
 
 1. **Connect to MongoDB:**
