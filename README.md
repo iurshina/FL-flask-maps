@@ -10,7 +10,7 @@ You can clone / fork this repo to get the contents of some of the files, but oth
 Also, through this guide:
 
 - The template includes sample code to show a Google Map and some markers in it
-- The template also includes a sample model with some prestored locations, just to test out the map functionality and make sure PostGis extension works too.
+- The template also includes a sample model with some prestored locations, just to test out the map functionality 
 
 The idea is you use this to get a first working version of these basic functionalities, and then start changing things to build your own app.
 
@@ -20,10 +20,6 @@ The idea is you use this to get a first working version of these basic functiona
 - Git installed in your machine so you can execute git commands
 - Python installed in your machine so you can execute Python commands and run Pyton scripts. Make sure you have version **3.6 or superior**. You also need to use pip, can't remember if that needed to be installed separately.
 - A Google Maps API Key
-
-```bash
-brew install postgresql@14
-```
 
 ## Fork the project
 
@@ -52,7 +48,7 @@ pip install -r requirements.txt
 
 ## Install MongoDB
 
-In this fork, we replace Postgress with MongoDB. 
+In this fork, compared with the original repo, we replace Postgress with MongoDB. 
 
 To install MongoDB:
 
@@ -88,7 +84,7 @@ To create a database in the MongoDB shell:
 use mydatabase
 ```
 
-For more information beyond using this app, refere to MONGO_DB_INTRO.MD file.
+For more information about MongoDB beyond using this app, refere to MONGO_DB_INTRO.MD file.
 
 ## Running the app locally
 
